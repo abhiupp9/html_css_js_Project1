@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Library Login Page</title>
+    <link rel="stylesheet" href="liberarystyle.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Student Library Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Library Email</label>
+                <input type="email" id="email" placeholder="user@studentliberary.in" required>
+                <small id="emailError" class="error-text"></small>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+
+            <button type="submit" id="submitBtn">Sign In</button>
+        </form>
+
+        <div id="messageBox" class="hidden"></div>
+    </div>
+    <script src="liberary.js"></script>
+</body>
+
+</html>
