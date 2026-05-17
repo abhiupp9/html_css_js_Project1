@@ -39,3 +39,43 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
             document.getElementById('loginForm').reset();
         });
 });
+
+const loginForm = document.getElementById('loginForm');
+const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+const formTitle = document.getElementById('formTitle');
+
+document.getElementById('forgotPasswordLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    loginForm.classList.add('hidden');
+    forgotPasswordForm.classList.remove('hidden');
+    formTitle.textContent = 'Reset Password';
+    document.getElementById('messageBox').classList.add('hidden');
+});
+
+document.getElementById('backToLoginLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    forgotPasswordForm.classList.add('hidden');
+    loginForm.classList.remove('hidden');
+    formTitle.textContent = 'Student Library Login';
+    document.getElementById('messageBox').classList.add('hidden');
+});
+
+forgotPasswordForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('resetEmail').value;
+    const resetEmailError = document.getElementById('resetEmailError');
+    const messageBox = document.getElementById('messageBox');
+
+    if (!email.endsWith('@studentliberary.in')) {
+        resetEmailError.textContent = "Email must end with @studentliberary.in";
+        resetEmailError.style.display = "block";
+        return;
+    } else {
+        resetEmailError.style.display = "none";
+    }
+
+    messageBox.textContent = `A password reset link has been sent to ${email}.`;
+    messageBox.className = "success";
+    messageBox.classList.remove('hidden');
+    forgotPasswordForm.reset();
+});
